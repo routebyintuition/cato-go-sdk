@@ -1,0 +1,18 @@
+model:
+  package: cato_models
+  filename: ./models/models.go
+client:
+  package: cato_go_sdk
+  filename: ./client.go
+models:
+  Int:
+    model: github.com/99designs/gqlgen/graphql.Int64
+  Date:
+    model: github.com/99designs/gqlgen/graphql.Time
+schema:
+ - cato_api.graphqls
+query:
+  - "./sources/*.gql"
+generate:
+  clientV2: true
+  clientInterfaceName: "CatoClient"
