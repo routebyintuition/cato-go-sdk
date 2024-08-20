@@ -370,6 +370,8 @@ interface ObjectRef {
 enum ObjectRefBy {
   ID
   NAME
+  BY
+  INPUT
 }
 
 "Wall time. E.g.: 12:34:56 or 12:34"
