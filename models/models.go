@@ -928,11 +928,6 @@ func (this ApplicationCategoryRef) GetID() string { return this.ID }
 // Object's unique name
 func (this ApplicationCategoryRef) GetName() string { return this.Name }
 
-type ApplicationCategoryRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
-
 type ApplicationRef struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
@@ -945,11 +940,6 @@ func (this ApplicationRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this ApplicationRef) GetName() string { return this.Name }
-
-type ApplicationRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
 
 type AuditFeed struct {
 	From         *string                    `json:"from,omitempty"`
@@ -1464,11 +1454,6 @@ func (this CountryRef) GetID() string { return this.ID }
 // Object's unique name
 func (this CountryRef) GetName() string { return this.Name }
 
-type CountryRefInput struct {
-	Input string      `json:"input"`
-	By    ObjectRefBy `json:"by"`
-}
-
 type CustomApplicationRef struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
@@ -1482,11 +1467,6 @@ func (this CustomApplicationRef) GetID() string { return this.ID }
 // Object's unique name
 func (this CustomApplicationRef) GetName() string { return this.Name }
 
-type CustomApplicationRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
-
 type CustomCategoryRef struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
@@ -1499,11 +1479,6 @@ func (this CustomCategoryRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this CustomCategoryRef) GetName() string { return this.Name }
-
-type CustomCategoryRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
 
 // Returns data for Custom Service defined by a combination of L4 ports and an IP Protocol
 type CustomService struct {
@@ -1597,11 +1572,6 @@ func (this DeviceProfileRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this DeviceProfileRef) GetName() string { return this.Name }
-
-type DeviceProfileRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
 
 type DeviceSnapshot struct {
 	// Unique internal Cato ID for the Socket
@@ -1938,12 +1908,6 @@ func (this FloatingSubnetRef) GetName() string { return this.Name }
 // Defines the Floating Subnet object. Floating Subnets (ie. Floating Ranges) are used to identify traffic exactly matched
 // to the route advertised by BGP. They are not associated with a specific site.
 // This is useful in scenarios such as active-standby high availability routed via BGP.
-type FloatingSubnetRefInput struct {
-	// Defines the object identification method – by ID (default) or by name
-	By ObjectRefBy `json:"by"`
-	// The object identification (ID or name) value
-	Input string `json:"input"`
-}
 
 type FreeTextFilterInput struct {
 	Search string `json:"search"`
@@ -1982,11 +1946,6 @@ func (this GlobalIPRangeRef) GetID() string { return this.ID }
 // Object's unique name
 func (this GlobalIPRangeRef) GetName() string { return this.Name }
 
-type GlobalIPRangeRefInput struct {
-	Input string      `json:"input"`
-	By    ObjectRefBy `json:"by"`
-}
-
 // License usage and allocation across all accounts
 type GlobalLicenseAllocations struct {
 	// Public IP addresses usage across the accounts
@@ -2007,11 +1966,6 @@ func (this GroupRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this GroupRef) GetName() string { return this.Name }
-
-type GroupRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
 
 // Basic Site Ha readiness information
 type HaStatus struct {
@@ -2038,11 +1992,6 @@ func (this HostRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this HostRef) GetName() string { return this.Name }
-
-type HostRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
 
 // A general structure to contain IP detailed information
 type IPInfo struct {
@@ -2297,11 +2246,11 @@ type InternetFirewallAddRuleDataInput struct {
 	// Source country traffic matching criteria.
 	// Logical ‘OR’ is applied within the criteria set.
 	// Logical ‘AND’ is applied between criteria sets.
-	Country []*CountryRefInput `json:"country"`
+	Country []*CountryRef `json:"country"`
 	// Source Device Profile traffic matching criteria.
 	// Logical ‘OR’ is applied within the criteria set.
 	// Logical ‘AND’ is applied between criteria sets.
-	Device []*DeviceProfileRefInput `json:"device"`
+	Device []*DeviceProfileRef `json:"device"`
 	// Source device Operating System traffic matching criteria.
 	// Logical ‘OR’ is applied within the criteria set.
 	// Logical ‘AND’ is applied between criteria sets.
@@ -2364,16 +2313,16 @@ type InternetFirewallDestination struct {
 // Destination match criteria set
 type InternetFirewallDestinationInput struct {
 	// Applications for the rule (pre-defined)
-	Application []*ApplicationRefInput `json:"application"`
+	Application []*ApplicationRef `json:"application"`
 	// Custom (user-defined) applications
-	CustomApp []*CustomApplicationRefInput `json:"customApp"`
+	CustomApp []*CustomApplicationRef `json:"customApp"`
 	// Cato category of applications which are dynamically updated by Cato
-	AppCategory []*ApplicationCategoryRefInput `json:"appCategory"`
+	AppCategory []*ApplicationCategoryRef `json:"appCategory"`
 	// Custom Categories – Groups of objects such as predefined and custom applications, predefined and custom services, domains, FQDNs etc.
-	CustomCategory         []*CustomCategoryRefInput         `json:"customCategory"`
-	SanctionedAppsCategory []*SanctionedAppsCategoryRefInput `json:"sanctionedAppsCategory"`
+	CustomCategory         []*CustomCategoryRef         `json:"customCategory"`
+	SanctionedAppsCategory []*SanctionedAppsCategoryRef `json:"sanctionedAppsCategory"`
 	// Countries
-	Country []*CountryRefInput `json:"country"`
+	Country []*CountryRef `json:"country"`
 	// A Second-Level Domain (SLD). It matches all Top-Level Domains (TLD), and subdomains that include the Domain. Example: example.com.
 	Domain []string `json:"domain"`
 	// An exact match of the fully qualified domain (FQDN). Example: www.my.example.com.
@@ -2385,23 +2334,23 @@ type InternetFirewallDestinationInput struct {
 	// A range of IPs. Every IP within the range will be matched
 	IPRange []*IPAddressRangeInput `json:"ipRange"`
 	// Globally defined IP range, IP and subnet objects
-	GlobalIPRange []*GlobalIPRangeRefInput `json:"globalIpRange"`
+	GlobalIPRange []*GlobalIPRangeRef `json:"globalIpRange"`
 	RemoteAsn     []string                 `json:"remoteAsn"`
 }
 
 // Destination match criteria set
 type InternetFirewallDestinationUpdateInput struct {
 	// Applications for the rule (pre-defined)
-	Application []*ApplicationRefInput `json:"application,omitempty"`
+	Application []*ApplicationRef `json:"application,omitempty"`
 	// Custom (user-defined) applications
-	CustomApp []*CustomApplicationRefInput `json:"customApp,omitempty"`
+	CustomApp []*CustomApplicationRef `json:"customApp,omitempty"`
 	// Cato category of applications which are dynamically updated by Cato
-	AppCategory []*ApplicationCategoryRefInput `json:"appCategory,omitempty"`
+	AppCategory []*ApplicationCategoryRef `json:"appCategory,omitempty"`
 	// Custom Categories – Groups of objects such as predefined and custom applications, predefined and custom services, domains, FQDNs etc.
-	CustomCategory         []*CustomCategoryRefInput         `json:"customCategory,omitempty"`
-	SanctionedAppsCategory []*SanctionedAppsCategoryRefInput `json:"sanctionedAppsCategory,omitempty"`
+	CustomCategory         []*CustomCategoryRef         `json:"customCategory,omitempty"`
+	SanctionedAppsCategory []*SanctionedAppsCategoryRef `json:"sanctionedAppsCategory,omitempty"`
 	// Countries
-	Country []*CountryRefInput `json:"country,omitempty"`
+	Country []*CountryRef `json:"country,omitempty"`
 	// A Second-Level Domain (SLD). It matches all Top-Level Domains (TLD), and subdomains that include the Domain. Example: example.com.
 	Domain []string `json:"domain,omitempty"`
 	// An exact match of the fully qualified domain (FQDN). Example: www.my.example.com.
@@ -2413,7 +2362,7 @@ type InternetFirewallDestinationUpdateInput struct {
 	// A range of IPs. Every IP within the range will be matched
 	IPRange []*IPAddressRangeInput `json:"ipRange,omitempty"`
 	// Globally defined IP range, IP and subnet objects
-	GlobalIPRange []*GlobalIPRangeRefInput `json:"globalIpRange,omitempty"`
+	GlobalIPRange []*GlobalIPRangeRef `json:"globalIpRange,omitempty"`
 	RemoteAsn     []string                 `json:"remoteAsn,omitempty"`
 }
 
@@ -2639,9 +2588,9 @@ type InternetFirewallRuleExceptionInput struct {
 	// Source device OS matching criteria for the exception.
 	DeviceOs []OperatingSystem `json:"deviceOS"`
 	// Source country matching criteria for the exception.
-	Country []*CountryRefInput `json:"country"`
+	Country []*CountryRef `json:"country"`
 	// Source Device Profile matching criteria for the exception.
-	Device []*DeviceProfileRefInput `json:"device"`
+	Device []*DeviceProfileRef `json:"device"`
 	// Destination matching criteria for the exception.
 	Destination *InternetFirewallDestinationInput `json:"destination"`
 	// Destination service matching criteria for the exception.
@@ -2709,13 +2658,13 @@ type InternetFirewallServiceType struct {
 
 // Add the Service Type to which this Internet Firewall rule applies
 type InternetFirewallServiceTypeInput struct {
-	Standard []*ServiceRefInput    `json:"standard"`
+	Standard []*ServiceRef    `json:"standard"`
 	Custom   []*CustomServiceInput `json:"custom"`
 }
 
 // Add the Service Type to which this Internet Firewall rule applies
 type InternetFirewallServiceTypeUpdateInput struct {
-	Standard []*ServiceRefInput    `json:"standard,omitempty"`
+	Standard []*ServiceRef    `json:"standard,omitempty"`
 	Custom   []*CustomServiceInput `json:"custom,omitempty"`
 }
 
@@ -2754,29 +2703,29 @@ type InternetFirewallSourceInput struct {
 	// IPv4 address
 	IP []string `json:"ip"`
 	// Hosts and servers defined for your account
-	Host []*HostRefInput `json:"host"`
+	Host []*HostRef `json:"host"`
 	// Site defined for the account
-	Site []*SiteRefInput `json:"site"`
+	Site []*SiteRef `json:"site"`
 	// Subnets and network ranges defined for the LAN interfaces of a site
 	Subnet []string `json:"subnet"`
 	// Multiple separate IP addresses or an IP range
 	IPRange []*IPAddressRangeInput `json:"ipRange"`
 	// Globally defined IP range, IP and subnet objects
-	GlobalIPRange []*GlobalIPRangeRefInput `json:"globalIpRange"`
+	GlobalIPRange []*GlobalIPRangeRef `json:"globalIpRange"`
 	// Network range defined for a site
-	NetworkInterface []*NetworkInterfaceRefInput `json:"networkInterface"`
+	NetworkInterface []*NetworkInterfaceRef `json:"networkInterface"`
 	// GlobalRange + InterfaceSubnet
-	SiteNetworkSubnet []*SiteNetworkSubnetRefInput `json:"siteNetworkSubnet"`
+	SiteNetworkSubnet []*SiteNetworkSubnetRef `json:"siteNetworkSubnet"`
 	// Floating Subnets (ie. Floating Ranges) are used to identify traffic exactly matched to the route advertised by BGP. They are not associated with a specific site. This is useful in scenarios such as active-standby high availability routed via BGP.
-	FloatingSubnet []*FloatingSubnetRefInput `json:"floatingSubnet"`
+	FloatingSubnet []*FloatingSubnetRef `json:"floatingSubnet"`
 	// Individual users defined for the account
-	User []*UserRefInput `json:"user"`
+	User []*UserRef `json:"user"`
 	// Group of users
-	UsersGroup []*UsersGroupRefInput `json:"usersGroup"`
+	UsersGroup []*UsersGroupRef `json:"usersGroup"`
 	// Groups defined for your account
-	Group []*GroupRefInput `json:"group"`
+	Group []*GroupRef `json:"group"`
 	// Predefined Cato groups
-	SystemGroup []*SystemGroupRefInput `json:"systemGroup"`
+	SystemGroup []*SystemGroupRef `json:"systemGroup"`
 }
 
 // Input of the settings for Source of an Internet Firewall rule
@@ -2784,29 +2733,29 @@ type InternetFirewallSourceUpdateInput struct {
 	// IPv4 address
 	IP []string `json:"ip,omitempty"`
 	// Hosts and servers defined for your account
-	Host []*HostRefInput `json:"host,omitempty"`
+	Host []*HostRef `json:"host,omitempty"`
 	// Site defined for the account
-	Site []*SiteRefInput `json:"site,omitempty"`
+	Site []*SiteRef `json:"site,omitempty"`
 	// Subnets and network ranges defined for the LAN interfaces of a site
 	Subnet []string `json:"subnet,omitempty"`
 	// Multiple separate IP addresses or an IP range
 	IPRange []*IPAddressRangeInput `json:"ipRange,omitempty"`
 	// Globally defined IP range, IP and subnet objects
-	GlobalIPRange []*GlobalIPRangeRefInput `json:"globalIpRange,omitempty"`
+	GlobalIPRange []*GlobalIPRangeRef `json:"globalIpRange,omitempty"`
 	// Network range defined for a site
-	NetworkInterface []*NetworkInterfaceRefInput `json:"networkInterface,omitempty"`
+	NetworkInterface []*NetworkInterfaceRef `json:"networkInterface,omitempty"`
 	// GlobalRange + InterfaceSubnet
-	SiteNetworkSubnet []*SiteNetworkSubnetRefInput `json:"siteNetworkSubnet,omitempty"`
+	SiteNetworkSubnet []*SiteNetworkSubnetRef `json:"siteNetworkSubnet,omitempty"`
 	// Floating Subnets (ie. Floating Ranges) are used to identify traffic exactly matched to the route advertised by BGP. They are not associated with a specific site. This is useful in scenarios such as active-standby high availability routed via BGP.
-	FloatingSubnet []*FloatingSubnetRefInput `json:"floatingSubnet,omitempty"`
+	FloatingSubnet []*FloatingSubnetRef `json:"floatingSubnet,omitempty"`
 	// Individual users defined for the account
-	User []*UserRefInput `json:"user,omitempty"`
+	User []*UserRef `json:"user,omitempty"`
 	// Group of users
-	UsersGroup []*UsersGroupRefInput `json:"usersGroup,omitempty"`
+	UsersGroup []*UsersGroupRef `json:"usersGroup,omitempty"`
 	// Groups defined for your account
-	Group []*GroupRefInput `json:"group,omitempty"`
+	Group []*GroupRef `json:"group,omitempty"`
 	// Predefined Cato groups
-	SystemGroup []*SystemGroupRefInput `json:"systemGroup,omitempty"`
+	SystemGroup []*SystemGroupRef `json:"systemGroup,omitempty"`
 }
 
 type InternetFirewallUpdateRuleDataInput struct {
@@ -2822,11 +2771,11 @@ type InternetFirewallUpdateRuleDataInput struct {
 	// Source country traffic matching criteria.
 	// Logical ‘OR’ is applied within the criteria set.
 	// Logical ‘AND’ is applied between criteria sets.
-	Country []*CountryRefInput `json:"country,omitempty"`
+	Country []*CountryRef `json:"country,omitempty"`
 	// Source Device Profile traffic matching criteria.
 	// Logical ‘OR’ is applied within the criteria set.
 	// Logical ‘AND’ is applied between criteria sets.
-	Device []*DeviceProfileRefInput `json:"device,omitempty"`
+	Device []*DeviceProfileRef `json:"device,omitempty"`
 	// Source device Operating System traffic matching criteria.
 	// Logical ‘OR’ is applied within the criteria set.
 	// Logical ‘AND’ is applied between criteria sets.
@@ -3564,11 +3513,6 @@ func (this NetworkInterfaceRef) GetID() string { return this.ID }
 // Object's unique name
 func (this NetworkInterfaceRef) GetName() string { return this.Name }
 
-type NetworkInterfaceRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
-
 type NetworkTimelineEvent struct {
 	Created              string                    `json:"created"`
 	Validated            string                    `json:"validated"`
@@ -4021,11 +3965,11 @@ type PolicyRuleTrackingAlertInput struct {
 	// Returns data for the alert frequency
 	Frequency PolicyRuleTrackingFrequencyEnum `json:"frequency"`
 	// Returns data for the Subscription Group that receives the alert
-	SubscriptionGroup []*SubscriptionGroupRefInput `json:"subscriptionGroup"`
+	SubscriptionGroup []*SubscriptionGroupRef `json:"subscriptionGroup"`
 	// Returns data for the Webhook that receives the alert
-	Webhook []*SubscriptionWebhookRefInput `json:"webhook"`
+	Webhook []*SubscriptionWebhookRef `json:"webhook"`
 	// Returns data for the Mailing List that receives the alert
-	MailingList []*SubscriptionMailingListRefInput `json:"mailingList"`
+	MailingList []*SubscriptionMailingListRef `json:"mailingList"`
 }
 
 // Input of data for the alert settings for the rule
@@ -4035,11 +3979,11 @@ type PolicyRuleTrackingAlertUpdateInput struct {
 	// Returns data for the alert frequency
 	Frequency *PolicyRuleTrackingFrequencyEnum `json:"frequency,omitempty"`
 	// Returns data for the Subscription Group that receives the alert
-	SubscriptionGroup []*SubscriptionGroupRefInput `json:"subscriptionGroup,omitempty"`
+	SubscriptionGroup []*SubscriptionGroupRef `json:"subscriptionGroup,omitempty"`
 	// Returns data for the Webhook that receives the alert
-	Webhook []*SubscriptionWebhookRefInput `json:"webhook,omitempty"`
+	Webhook []*SubscriptionWebhookRef `json:"webhook,omitempty"`
 	// Returns data for the Mailing List that receives the alert
-	MailingList []*SubscriptionMailingListRefInput `json:"mailingList,omitempty"`
+	MailingList []*SubscriptionMailingListRef `json:"mailingList,omitempty"`
 }
 
 // Returns data if an alert is sent for a rule
@@ -4425,11 +4369,6 @@ func (this SanctionedAppsCategoryRef) GetID() string { return this.ID }
 // Object's unique name
 func (this SanctionedAppsCategoryRef) GetName() string { return this.Name }
 
-type SanctionedAppsCategoryRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
-
 type ServiceRef struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
@@ -4442,11 +4381,6 @@ func (this ServiceRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this ServiceRef) GetName() string { return this.Name }
-
-type ServiceRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
 
 type SimilarStoryData struct {
 	StoryID              *string  `json:"storyId,omitempty"`
@@ -4601,11 +4535,6 @@ func (this SiteNetworkSubnetRef) GetID() string { return this.ID }
 // Object's unique name
 func (this SiteNetworkSubnetRef) GetName() string { return this.Name }
 
-type SiteNetworkSubnetRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
-
 type SiteRef struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
@@ -4618,11 +4547,6 @@ func (this SiteRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this SiteRef) GetName() string { return this.Name }
-
-type SiteRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
 
 type SiteSnapshot struct {
 	// site ID
@@ -4901,11 +4825,6 @@ func (this SubscriptionGroupRef) GetID() string { return this.ID }
 // Object's unique name
 func (this SubscriptionGroupRef) GetName() string { return this.Name }
 
-type SubscriptionGroupRefInput struct {
-	Input string      `json:"input"`
-	By    ObjectRefBy `json:"by"`
-}
-
 type SubscriptionMailingListRef struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
@@ -4918,11 +4837,6 @@ func (this SubscriptionMailingListRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this SubscriptionMailingListRef) GetName() string { return this.Name }
-
-type SubscriptionMailingListRefInput struct {
-	Input string      `json:"input"`
-	By    ObjectRefBy `json:"by"`
-}
 
 type SubscriptionWebhookRef struct {
 	ID   string `json:"id"`
@@ -4937,11 +4851,6 @@ func (this SubscriptionWebhookRef) GetID() string { return this.ID }
 // Object's unique name
 func (this SubscriptionWebhookRef) GetName() string { return this.Name }
 
-type SubscriptionWebhookRefInput struct {
-	Input string      `json:"input"`
-	By    ObjectRefBy `json:"by"`
-}
-
 type SystemGroupRef struct {
 	ID   string `json:"id"`
 	Name string `json:"name"`
@@ -4954,11 +4863,6 @@ func (this SystemGroupRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this SystemGroupRef) GetName() string { return this.Name }
-
-type SystemGroupRefInput struct {
-	Input string      `json:"input"`
-	By    ObjectRefBy `json:"by"`
-}
 
 type Threat struct {
 	// Unique Cato ID for this threat
@@ -5584,11 +5488,6 @@ func (this UserRef) GetID() string { return this.ID }
 // Object's unique name
 func (this UserRef) GetName() string { return this.Name }
 
-type UserRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
-
 type UserSnapshot struct {
 	// VPN user ID
 	ID *string `json:"id,omitempty"`
@@ -5645,11 +5544,6 @@ func (this UsersGroupRef) GetID() string { return this.ID }
 
 // Object's unique name
 func (this UsersGroupRef) GetName() string { return this.Name }
-
-type UsersGroupRefInput struct {
-	By    ObjectRefBy `json:"by"`
-	Input string      `json:"input"`
-}
 
 type VendorPredicate struct {
 	In    []VendorEnum `json:"in,omitempty"`

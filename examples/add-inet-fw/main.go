@@ -38,17 +38,17 @@ func main() {
 	ctx := context.Background()
 
 	position := cato_models.PolicyRulePositionEnum("LAST_IN_POLICY")
-	hostRefInput := []*cato_models.HostRefInput{}
-	siteRefInput := []*cato_models.SiteRefInput{}
+	hostRefInput := []*cato_models.HostRef{}
+	siteRefInput := []*cato_models.SiteRef{}
 	iprange := []*cato_models.IPAddressRangeInput{}
-	globalIpRange := []*cato_models.GlobalIPRangeRefInput{}
-	networkInterfaceRefInput := []*cato_models.NetworkInterfaceRefInput{}
-	siteNetworkSubnetRefInput := []*cato_models.SiteNetworkSubnetRefInput{}
-	floatingSubnetRefInput := []*cato_models.FloatingSubnetRefInput{}
-	userRefInput := []*cato_models.UserRefInput{}
-	usersGroupRefInput := []*cato_models.UsersGroupRefInput{}
-	groupRefInput := []*cato_models.GroupRefInput{}
-	systemGroupRefInput := []*cato_models.SystemGroupRefInput{}
+	globalIpRange := []*cato_models.GlobalIPRangeRef{}
+	networkInterfaceRefInput := []*cato_models.NetworkInterfaceRef{}
+	siteNetworkSubnetRefInput := []*cato_models.SiteNetworkSubnetRef{}
+	floatingSubnetRefInput := []*cato_models.FloatingSubnetRef{}
+	userRefInput := []*cato_models.UserRef{}
+	usersGroupRefInput := []*cato_models.UsersGroupRef{}
+	groupRefInput := []*cato_models.GroupRef{}
+	systemGroupRefInput := []*cato_models.SystemGroupRef{}
 
 	connectionOrigin := cato_models.ConnectionOriginEnum("ANY")
 	actionEnum := cato_models.InternetFirewallActionEnum("ALLOW")
@@ -80,16 +80,16 @@ func main() {
 				SystemGroup:       systemGroupRefInput,
 			},
 			ConnectionOrigin: connectionOrigin,
-			Country:          []*cato_models.CountryRefInput{},
-			Device:           []*cato_models.DeviceProfileRefInput{},
+			Country:          []*cato_models.CountryRef{},
+			Device:           []*cato_models.DeviceProfileRef{},
 			DeviceOs:         []cato_models.OperatingSystem{},
 			Destination: &cato_models.InternetFirewallDestinationInput{
-				Application:            []*cato_models.ApplicationRefInput{},
-				CustomApp:              []*cato_models.CustomApplicationRefInput{},
-				AppCategory:            []*cato_models.ApplicationCategoryRefInput{},
-				CustomCategory:         []*cato_models.CustomCategoryRefInput{},
-				SanctionedAppsCategory: []*cato_models.SanctionedAppsCategoryRefInput{},
-				Country:                []*cato_models.CountryRefInput{},
+				Application:            []*cato_models.ApplicationRef{},
+				CustomApp:              []*cato_models.CustomApplicationRef{},
+				AppCategory:            []*cato_models.ApplicationCategoryRef{},
+				CustomCategory:         []*cato_models.CustomCategoryRef{},
+				SanctionedAppsCategory: []*cato_models.SanctionedAppsCategoryRef{},
+				Country:                []*cato_models.CountryRef{},
 				Domain:                 domainList,
 				Fqdn:                   fqdnList,
 				IP:                     []string{},
@@ -110,9 +110,9 @@ func main() {
 				Alert: &cato_models.PolicyRuleTrackingAlertInput{
 					Enabled:           false,
 					Frequency:         "DAILY",
-					SubscriptionGroup: []*cato_models.SubscriptionGroupRefInput{},
-					MailingList:       []*cato_models.SubscriptionMailingListRefInput{},
-					Webhook:           []*cato_models.SubscriptionWebhookRefInput{},
+					SubscriptionGroup: []*cato_models.SubscriptionGroupRef{},
+					MailingList:       []*cato_models.SubscriptionMailingListRef{},
+					Webhook:           []*cato_models.SubscriptionWebhookRef{},
 				},
 			},
 		},
