@@ -139,7 +139,7 @@ Mustations are used in GraphQL to perform a change. This can include a create/up
 		fmt.Println("error: ", err)
 		os.Exit(1)
 	}
-    ```
+```
 
 ### Examples
 
