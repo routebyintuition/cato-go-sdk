@@ -6,7 +6,7 @@ https://www.catonetworks.com/platform/cato-api/
 
 ### Installation
 
-```
+```bash
 go install github.com/routebyintuition/cato-go-sdk
 ```
 
@@ -15,7 +15,7 @@ URL: The URL to the Cato Networks GraphQL endpoint (https://api.catonetworks.com
 Token: Your API access token
 HTTP Client: Use either the default HTTP client or leverage more advanced configuration options by passing in a client.
 
-```
+```go
 catoClient, _ := cato.New(url, token, *http.DefaultClient)
 ```
 
@@ -24,7 +24,7 @@ In this example, we are looking up Entity information regarding Cato Site data f
 
 To read the returned data, we can either leverage a JSON Marshall call to read the JSON directly or perform GetItems()/GetItem() on the elements.
 
-```
+```go
 	queryResult, err := catoClient.EntityLookup(ctx, accountId, cato_models.EntityType("site"), nil, nil, nil, nil, entityIds, nil, nil, nil)
 	if err != nil {
 		fmt.Println("error in EntityLookup: ", err)
@@ -47,7 +47,7 @@ To read the returned data, we can either leverage a JSON Marshall call to read t
 ### Client Mutations
 Mustations are used in GraphQL to perform a change. This can include a create/update/delete operation. In the example below, we are creating a mostly blank internet firewall rule which is named, "TestRule101". This is set to be inserted as the last rule in the policy to ALLOW any traffic to slashdot.org.
 
-```
+```go
 	catoClient, _ := cato.New(url, token, *http.DefaultClient)
 
 	ctx := context.Background()
