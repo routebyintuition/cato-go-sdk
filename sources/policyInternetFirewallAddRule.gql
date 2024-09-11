@@ -13,20 +13,20 @@ mutation policyInternetFirewallAddRule ( $internetFirewallAddRuleInput:InternetF
 						description 
 						index 
 						section  {
-							by
-							input
+							id
+							name
 						}
 
 						enabled 
 						source  {
 							ip
 							host {
-								by 
-								input 
+								id 
+								name 
 							}
 							site {
-								by 
-								input 
+								id 
+								name 
 							}
 							subnet
 							ipRange {
@@ -34,75 +34,75 @@ mutation policyInternetFirewallAddRule ( $internetFirewallAddRuleInput:InternetF
 								to 
 							}
 							globalIpRange {
-								by 
-								input 
+								id 
+								name 
 							}
 							networkInterface {
-								by 
-								input 
+								id 
+								name 
 							}
 							siteNetworkSubnet {
-								by 
-								input 
+								id 
+								name 
 							}
 							floatingSubnet {
-								by 
-								input 
+								id 
+								name 
 							}
 							user {
-								by 
-								input 
+								id 
+								name 
 							}
 							usersGroup {
-								by 
-								input 
+								id 
+								name 
 							}
 							group {
-								by 
-								input 
+								id 
+								name 
 							}
 							systemGroup {
-								by 
-								input 
+								id 
+								name 
 							}
 						}
 
 						connectionOrigin 
 						country  {
-							by
-							input
+							id
+							name
 						}
 
 						device  {
-							by
-							input
+							id
+							name
 						}
 
 						deviceOS 
 						destination  {
 							application {
-								by 
-								input 
+								id 
+								name 
 							}
 							customApp {
-								by 
-								input 
+								id 
+								name 
 							}
 							appCategory {
-								by 
-								input 
+								id 
+								name 
 							}
 							customCategory {
-								by 
-								input 
+								id 
+								name 
 							}
 							sanctionedAppsCategory {
-								by 
-								input 
+								id 
+								name 
 							}
 							country {
-								by 
-								input 
+								id 
+								name 
 							}
 							domain
 							fqdn
@@ -113,16 +113,16 @@ mutation policyInternetFirewallAddRule ( $internetFirewallAddRuleInput:InternetF
 								to 
 							}
 							globalIpRange {
-								by 
-								input 
+								id 
+								name 
 							}
 							remoteAsn
 						}
 
 						service  {
 							standard {
-								by 
-								input 
+								id 
+								name 
 							}
 							custom {
 								port 
@@ -144,18 +144,18 @@ mutation policyInternetFirewallAddRule ( $internetFirewallAddRuleInput:InternetF
 								enabled 
 								frequency 
 								subscriptionGroup  {
-									by
-									input
+									id
+									name
 								}
 
 								webhook  {
-									by
-									input
+									id
+									name
 								}
 
 								mailingList  {
-									by
-									input
+									id
+									name
 								}
 
 							}
@@ -179,13 +179,13 @@ mutation policyInternetFirewallAddRule ( $internetFirewallAddRuleInput:InternetF
 							source {
 								ip 
 								host  {
-									by
-									input
+									id
+									name
 								}
 
 								site  {
-									by
-									input
+									id
+									name
 								}
 
 								subnet 
@@ -195,84 +195,84 @@ mutation policyInternetFirewallAddRule ( $internetFirewallAddRuleInput:InternetF
 								}
 
 								globalIpRange  {
-									by
-									input
+									id
+									name
 								}
 
 								networkInterface  {
-									by
-									input
+									id
+									name
 								}
 
 								siteNetworkSubnet  {
-									by
-									input
+									id
+									name
 								}
 
 								floatingSubnet  {
-									by
-									input
+									id
+									name
 								}
 
 								user  {
-									by
-									input
+									id
+									name
 								}
 
 								usersGroup  {
-									by
-									input
+									id
+									name
 								}
 
 								group  {
-									by
-									input
+									id
+									name
 								}
 
 								systemGroup  {
-									by
-									input
+									id
+									name
 								}
 
 							}
 							deviceOS
 							country {
-								by 
-								input 
+								id 
+								name 
 							}
 							device {
-								by 
-								input 
+								id 
+								name 
 							}
 							destination {
 								application  {
-									by
-									input
+									id
+									name
 								}
 
 								customApp  {
-									by
-									input
+									id
+									name
 								}
 
 								appCategory  {
-									by
-									input
+									id
+									name
 								}
 
 								customCategory  {
-									by
-									input
+									id
+									name
 								}
 
 								sanctionedAppsCategory  {
-									by
-									input
+									id
+									name
 								}
 
 								country  {
-									by
-									input
+									id
+									name
 								}
 
 								domain 
@@ -285,16 +285,16 @@ mutation policyInternetFirewallAddRule ( $internetFirewallAddRuleInput:InternetF
 								}
 
 								globalIpRange  {
-									by
-									input
+									id
+									name
 								}
 
 								remoteAsn 
 							}
 							service {
 								standard  {
-									by
-									input
+									id
+									name
 								}
 
 								custom  {

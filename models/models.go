@@ -7,6 +7,8 @@ import (
 	"io"
 	"strconv"
 	"time"
+
+	"github.com/routebyintuition/cato-go-sdk/scalars"
 )
 
 type Activity interface {
@@ -1507,14 +1509,14 @@ type CustomCategoryRefInput struct {
 
 // Returns data for Custom Service defined by a combination of L4 ports and an IP Protocol
 type CustomService struct {
-	Port      []string   `json:"port,omitempty"`
-	PortRange *PortRange `json:"portRange,omitempty"`
-	Protocol  IPProtocol `json:"protocol"`
+	Port      []scalars.Port `json:"port,omitempty"`
+	PortRange *PortRange     `json:"portRange,omitempty"`
+	Protocol  IPProtocol     `json:"protocol"`
 }
 
 // Add a Custom Service defined by a combination of L4 ports and an IP Protocol
 type CustomServiceInput struct {
-	Port      []string        `json:"port,omitempty"`
+	Port      []scalars.Port  `json:"port,omitempty"`
 	PortRange *PortRangeInput `json:"portRange,omitempty"`
 	Protocol  IPProtocol      `json:"protocol"`
 }
@@ -4195,14 +4197,14 @@ type PooledBandwidthLicenseSite struct {
 
 // Inclusive network port range
 type PortRange struct {
-	From string `json:"from"`
-	To   string `json:"to"`
+	From scalars.Port `json:"from"`
+	To   scalars.Port `json:"to"`
 }
 
 // Inclusive network port range
 type PortRangeInput struct {
-	From string `json:"from"`
-	To   string `json:"to"`
+	From scalars.Port `json:"from"`
+	To   scalars.Port `json:"to"`
 }
 
 // Public IP address license
