@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"io"
 	"strconv"
-	"time"
 
 	"github.com/routebyintuition/cato-go-sdk/scalars"
 )
@@ -3803,23 +3802,23 @@ type PolicyCreateRevisionInput struct {
 
 // Returns data for a custom recurring time range that a rule is active
 type PolicyCustomRecurring struct {
-	From time.Time   `json:"from"`
-	To   time.Time   `json:"to"`
-	Days []DayOfWeek `json:"days"`
+	From scalars.Time `json:"from"`
+	To   scalars.Time `json:"to"`
+	Days []DayOfWeek  `json:"days"`
 }
 
 // Input of data for a custom recurring time range that a rule is active
 type PolicyCustomRecurringInput struct {
-	From time.Time   `json:"from"`
-	To   time.Time   `json:"to"`
-	Days []DayOfWeek `json:"days"`
+	From scalars.Time `json:"from"`
+	To   scalars.Time `json:"to"`
+	Days []DayOfWeek  `json:"days"`
 }
 
 // Input of data for a custom recurring time range that a rule is active
 type PolicyCustomRecurringUpdateInput struct {
-	From *time.Time  `json:"from,omitempty"`
-	To   *time.Time  `json:"to,omitempty"`
-	Days []DayOfWeek `json:"days,omitempty"`
+	From *scalars.Time `json:"from,omitempty"`
+	To   *scalars.Time `json:"to,omitempty"`
+	Days []DayOfWeek   `json:"days,omitempty"`
 }
 
 // Returns data for a custom one-time time range that a rule is active

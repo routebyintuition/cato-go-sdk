@@ -5,7 +5,6 @@ package cato_go_sdk
 import (
 	"context"
 	"net/http"
-	"time"
 
 	"github.com/Yamashou/gqlgenc/clientv2"
 	cato_models "github.com/routebyintuition/cato-go-sdk/models"
@@ -6371,18 +6370,18 @@ func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_Crea
 }
 
 type PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *time.Time {
+func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
 	return &t.From
 }
-func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *time.Time {
+func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
@@ -8328,18 +8327,18 @@ func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_Dis
 }
 
 type PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *time.Time {
+func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
 	return &t.From
 }
-func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *time.Time {
+func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
@@ -10285,18 +10284,18 @@ func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Ru
 }
 
 type PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetFrom() *time.Time {
+func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule{}
 	}
 	return &t.From
 }
-func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetTo() *time.Time {
+func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetTo() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule{}
 	}
@@ -12204,18 +12203,18 @@ func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rul
 }
 
 type PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetFrom() *time.Time {
+func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule{}
 	}
 	return &t.From
 }
-func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetTo() *time.Time {
+func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetTo() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule{}
 	}
@@ -14123,18 +14122,18 @@ func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_Pub
 }
 
 type PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *time.Time {
+func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
 	return &t.From
 }
-func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *time.Time {
+func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
@@ -16080,18 +16079,18 @@ func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rul
 }
 
 type PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetFrom() *time.Time {
+func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule{}
 	}
 	return &t.From
 }
-func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetTo() *time.Time {
+func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetTo() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule{}
 	}
@@ -17999,18 +17998,18 @@ func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy
 }
 
 type PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Schedule_CustomRecurring struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *time.Time {
+func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
 	return &t.From
 }
-func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *time.Time {
+func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
@@ -19956,18 +19955,18 @@ func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Schedule_CustomTimefra
 }
 
 type Policy_Policy_InternetFirewall_Policy_Rules_Rule_Schedule_CustomRecurring struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *time.Time {
+func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Schedule_CustomRecurring) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &Policy_Policy_InternetFirewall_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
 	return &t.From
 }
-func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *time.Time {
+func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Schedule_CustomRecurring) GetTo() *scalars.Time {
 	if t == nil {
 		t = &Policy_Policy_InternetFirewall_Policy_Rules_Rule_Schedule_CustomRecurring{}
 	}
@@ -21373,18 +21372,18 @@ func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule
 }
 
 type PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule struct {
-	From time.Time               "json:\"from\" graphql:\"from\""
-	To   time.Time               "json:\"to\" graphql:\"to\""
+	From scalars.Time            "json:\"from\" graphql:\"from\""
+	To   scalars.Time            "json:\"to\" graphql:\"to\""
 	Days []cato_models.DayOfWeek "json:\"days\" graphql:\"days\""
 }
 
-func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetFrom() *time.Time {
+func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetFrom() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule{}
 	}
 	return &t.From
 }
-func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetTo() *time.Time {
+func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule) GetTo() *scalars.Time {
 	if t == nil {
 		t = &PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Schedule_CustomRecurringPolicySchedule{}
 	}

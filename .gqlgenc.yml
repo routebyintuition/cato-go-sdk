@@ -11,6 +11,8 @@ models:
     model: github.com/99designs/gqlgen/graphql.Time
   Port:
     model: github.com/routebyintuition/cato-go-sdk/scalars.Port
+  Time:
+    model: github.com/routebyintuition/cato-go-sdk/scalars.Time    
 schema:
  - cato_api.graphqls
 query:
