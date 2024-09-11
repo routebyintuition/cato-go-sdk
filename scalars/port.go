@@ -17,19 +17,21 @@ func (p *Port) UnmarshalGQL(v interface{}) error {
 		return fmt.Errorf("UnmarshalGQL failure to convert to Int64: %s", v)
 	}
 
-	port := Port(strconv.FormatInt(srcInt, 10))
-	p = &port
+	*p = Port(strconv.FormatInt(srcInt, 10))
 
 	return nil
 }
 
 func (p Port) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, string(p))
+}
+
+func (p Port) GetInt64() int64 {
 	strInt64, err := strconv.ParseInt(string(p), 10, 64)
 	if err != nil {
-		fmt.Println("error in Port/MarshalGQL: ", err)
-		fmt.Fprint(w, 0)
-		return
+		fmt.Println("error in GetInt64: ", err)
+		return 0
 	}
 
-	fmt.Fprint(w, strInt64)
+	return strInt64
 }
