@@ -17,7 +17,7 @@ func (t Time) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, string(t))
 }
 
-func (t Time) GetInt64() string {
+func (t Time) GetString() string {
 
 	return string(t)
 }
