@@ -7,6 +7,7 @@ import (
 	"github.com/Yamashou/gqlgenc/clientv2"
 )
 
+// New function as wrapper to client
 func New(url string, token string, httpClient http.Client) (*Client, error) {
 	catoClient := &Client{
 		Client: clientv2.NewClient(&httpClient, url, nil,
