@@ -3,6 +3,7 @@ package scalars
 import (
 	"fmt"
 	"io"
+	"strconv"
 )
 
 type Time string
@@ -14,7 +15,7 @@ func (t *Time) UnmarshalGQL(v interface{}) error {
 }
 
 func (t Time) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, string(t))
+	fmt.Fprint(w, strconv.Quote(string(t)))
 }
 
 func (t Time) GetString() string {

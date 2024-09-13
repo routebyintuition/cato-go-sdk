@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"net/http"
 	"os"
@@ -54,8 +55,8 @@ func main() {
 		},
 		Rule: &cato_models.InternetFirewallAddRuleDataInput{
 			Enabled:     false,
-			Name:        "TestRule101",
-			Description: "TestRule101",
+			Name:        "TestScalarRule02",
+			Description: "TestScalarRule02",
 			Source: &cato_models.InternetFirewallSourceInput{
 				IP:                []string{},
 				Host:              hostRefInput,
@@ -93,7 +94,15 @@ func main() {
 			Service: &cato_models.InternetFirewallServiceTypeInput{},
 			Action:  actionEnum,
 			Schedule: &cato_models.PolicyScheduleInput{
-				ActiveOn: "ALWAYS",
+				ActiveOn: "CUSTOM_RECURRING",
+				CustomRecurring: &cato_models.PolicyCustomRecurringInput{
+					// From: cato_scalars.Time("08:00"),
+					From: "10:00:00",
+					To:   "11:00:00",
+					Days: []cato_models.DayOfWeek{
+						"MONDAY",
+					},
+				},
 			},
 			Tracking: &cato_models.PolicyTrackingInput{
 				Event: &cato_models.PolicyRuleTrackingEventInput{
@@ -116,6 +125,9 @@ func main() {
 		fmt.Println("error: ", err)
 		os.Exit(1)
 	}
+
+	policyChangeJson, _ := json.Marshal(policyChange)
+	fmt.Println(string(policyChangeJson))
 
 	fmt.Println("policyChange: ", policyChange)
 
