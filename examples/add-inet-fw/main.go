@@ -55,8 +55,8 @@ func main() {
 		},
 		Rule: &cato_models.InternetFirewallAddRuleDataInput{
 			Enabled:     false,
-			Name:        "TestScalarRule02",
-			Description: "TestScalarRule02",
+			Name:        "TestScalarRule01",
+			Description: "TestScalarRule01",
 			Source: &cato_models.InternetFirewallSourceInput{
 				IP:                []string{},
 				Host:              hostRefInput,
