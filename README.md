@@ -49,10 +49,10 @@ To read the returned data, we can either leverage a JSON Marshall call to read t
 
 ```go
 
-    accountId := "12345"
-    queryIfwPolicy := &cato_models.InternetFirewallPolicyInput{}
-	queryWanPolicy := &cato_models.WanFirewallPolicyInput{}
-	queryResult, err := catoClient.Policy(ctx, queryIfwPolicy, queryWanPolicy, accountId)
+accountId := "12345"
+queryIfwPolicy := &cato_models.InternetFirewallPolicyInput{}
+queryWanPolicy := &cato_models.WanFirewallPolicyInput{}
+queryResult, err := catoClient.Policy(ctx, queryIfwPolicy, queryWanPolicy, accountId)
 
 ```
 
