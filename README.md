@@ -44,6 +44,18 @@ To read the returned data, we can either leverage a JSON Marshall call to read t
 
 ```
 
+### Policy Queries
+#### Note:  The Policy query has been updated as of 9/17 to support the new Cato Networks WAN query parameters in addition to the previous Internet Firewall parameters. Those who have existing code leveraging a single input parameter to the query will need to ensure that you are using version < 0.2.20
+
+```go
+
+    accountId := "12345"
+    queryIfwPolicy := &cato_models.InternetFirewallPolicyInput{}
+	queryWanPolicy := &cato_models.WanFirewallPolicyInput{}
+	queryResult, err := catoClient.Policy(ctx, queryIfwPolicy, queryWanPolicy, accountId)
+
+```
+
 ### Client Mutations
 Mustations are used in GraphQL to perform a change. This can include a create/update/delete operation. In the example below, we are creating a mostly blank internet firewall rule which is named, "TestRule101". This is set to be inserted as the last rule in the policy to ALLOW any traffic to slashdot.org.
 
