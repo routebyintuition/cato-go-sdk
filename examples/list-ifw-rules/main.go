@@ -31,7 +31,6 @@ func main() {
 	ctx := context.Background()
 
 	queryIfwPolicy := &cato_models.InternetFirewallPolicyInput{}
-	// queryWanPolicy := &cato_models.WanFirewallPolicyInput{}
 	queryResult, err := catoClient.PolicyInternetFirewall(ctx, queryIfwPolicy, accountId)
 	if err != nil {
 		fmt.Println("policy query error: ", err)

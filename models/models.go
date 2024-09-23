@@ -996,11 +996,11 @@ type AuditRecord struct {
 }
 
 type BGPConnection struct {
-	ConnectionName *string `json:"connectionName,omitempty"`
-	PeerIP         *string `json:"peerIp,omitempty"`
-	PeerAsn        *string `json:"peerAsn,omitempty"`
-	CatoIP         *string `json:"catoIp,omitempty"`
-	CatoAsn        *string `json:"catoAsn,omitempty"`
+	ConnectionName *string        `json:"connectionName,omitempty"`
+	PeerIP         *string        `json:"peerIp,omitempty"`
+	PeerAsn        *scalars.Asn32 `json:"peerAsn,omitempty"`
+	CatoIP         *string        `json:"catoIp,omitempty"`
+	CatoAsn        *scalars.Asn16 `json:"catoAsn,omitempty"`
 }
 
 type BooleanPredicate struct {
@@ -2475,7 +2475,7 @@ type InternetFirewallDestination struct {
 	// Globally defined IP range, IP and subnet objects
 	GlobalIPRange []*GlobalIPRangeRef `json:"globalIpRange"`
 	// Remote Autonomous System Number (ASN)
-	RemoteAsn []string        `json:"remoteAsn"`
+	RemoteAsn []scalars.Asn16 `json:"remoteAsn"`
 	Container []*ContainerRef `json:"container"`
 }
 
@@ -2506,7 +2506,7 @@ type InternetFirewallDestinationInput struct {
 	// Globally defined IP range, IP and subnet objects
 	GlobalIPRange []*GlobalIPRangeRefInput `json:"globalIpRange"`
 	// Remote Autonomous System Number (ASN)
-	RemoteAsn []string             `json:"remoteAsn"`
+	RemoteAsn []scalars.Asn16      `json:"remoteAsn"`
 	Container []*ContainerRefInput `json:"container"`
 }
 
@@ -2537,7 +2537,7 @@ type InternetFirewallDestinationUpdateInput struct {
 	// Globally defined IP range, IP and subnet objects
 	GlobalIPRange []*GlobalIPRangeRefInput `json:"globalIpRange,omitempty"`
 	// Remote Autonomous System Number (ASN)
-	RemoteAsn []string             `json:"remoteAsn,omitempty"`
+	RemoteAsn []scalars.Asn16      `json:"remoteAsn,omitempty"`
 	Container []*ContainerRefInput `json:"container,omitempty"`
 }
 

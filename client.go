@@ -42,12 +42,6 @@ type CatoClient interface {
 	PolicyInternetFirewallUpdateSection(ctx context.Context, internetFirewallPolicyMutationInput *cato_models.InternetFirewallPolicyMutationInput, policyUpdateSectionInput cato_models.PolicyUpdateSectionInput, accountID string, interceptors ...clientv2.RequestInterceptor) (*PolicyInternetFirewallUpdateSection, error)
 	PolicyInternetFirewallUpdatePolicy(ctx context.Context, internetFirewallPolicyMutationInput *cato_models.InternetFirewallPolicyMutationInput, internetFirewallPolicyUpdateInput cato_models.InternetFirewallPolicyUpdateInput, accountID string, interceptors ...clientv2.RequestInterceptor) (*PolicyInternetFirewallUpdatePolicy, error)
 	Policy(ctx context.Context, internetFirewallPolicyInput *cato_models.InternetFirewallPolicyInput, wanFirewallPolicyInput *cato_models.WanFirewallPolicyInput, accountID string, interceptors ...clientv2.RequestInterceptor) (*Policy, error)
-
-	// Temporary entries to support independent calls for IFW and WAN Policies
-	PolicyInternetFirewall(ctx context.Context, internetFirewallPolicyInput *cato_models.InternetFirewallPolicyInput, accountID string, interceptors ...clientv2.RequestInterceptor) (*Policy, error)
-	PolicyWanFirewall(ctx context.Context, wanFirewallPolicyInput *cato_models.WanFirewallPolicyInput, accountID string, interceptors ...clientv2.RequestInterceptor) (*Policy, error)
-	// End of temporary additions
-
 	PolicyInternetFirewallAddRule(ctx context.Context, internetFirewallAddRuleInput cato_models.InternetFirewallAddRuleInput, accountID string, interceptors ...clientv2.RequestInterceptor) (*PolicyInternetFirewallAddRule, error)
 	PolicyWanFirewallAddRule(ctx context.Context, wanFirewallAddRuleInput cato_models.WanFirewallAddRuleInput, accountID string, interceptors ...clientv2.RequestInterceptor) (*PolicyWanFirewallAddRule, error)
 	PolicyWanFirewallAddSection(ctx context.Context, policyAddSectionInput cato_models.PolicyAddSectionInput, accountID string, interceptors ...clientv2.RequestInterceptor) (*PolicyWanFirewallAddSection, error)
@@ -6086,7 +6080,7 @@ type PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePo
 	Subnet                 []string                                                                                                                                        "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                                        "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                                 "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Destination) GetApplication() []*PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Destination_Application {
@@ -6161,7 +6155,7 @@ func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_Crea
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Destination{}
 	}
@@ -6923,7 +6917,7 @@ type PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePo
 	Subnet                 []string                                                                                                                                                   "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                                                   "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                                            "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetApplication() []*PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Exceptions_Destination_Application {
@@ -6998,7 +6992,7 @@ func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_Crea
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallCreatePolicyRevision_Policy_InternetFirewall_CreatePolicyRevision_Policy_Rules_Rule_Exceptions_Destination{}
 	}
@@ -8043,7 +8037,7 @@ type PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_Discard
 	Subnet                 []string                                                                                                                                          "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                                          "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                                   "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Destination) GetApplication() []*PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Destination_Application {
@@ -8118,7 +8112,7 @@ func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_Dis
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Destination{}
 	}
@@ -8880,7 +8874,7 @@ type PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_Discard
 	Subnet                 []string                                                                                                                                                     "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                                                     "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                                              "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetApplication() []*PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Exceptions_Destination_Application {
@@ -8955,7 +8949,7 @@ func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_Dis
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallDiscardPolicyRevision_Policy_InternetFirewall_DiscardPolicyRevision_Policy_Rules_Rule_Exceptions_Destination{}
 	}
@@ -10000,7 +9994,7 @@ type PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_D
 	Subnet                 []string                                                                                                        "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                        "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                 "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Destination) GetApplication() []*PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Destination_Application {
@@ -10075,7 +10069,7 @@ func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Ru
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Destination{}
 	}
@@ -10837,7 +10831,7 @@ type PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_E
 	Subnet                 []string                                                                                                                   "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                   "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                            "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Exceptions_Destination) GetApplication() []*PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Exceptions_Destination_Application {
@@ -10912,7 +10906,7 @@ func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Ru
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallMoveRule_Policy_InternetFirewall_MoveRule_Rule_Rule_Exceptions_Destination{}
 	}
@@ -11919,7 +11913,7 @@ type PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Ru
 	Subnet                 []string                                                                                                            "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                            "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                     "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Destination) GetApplication() []*PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Destination_Application {
@@ -11994,7 +11988,7 @@ func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rul
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Destination{}
 	}
@@ -12756,7 +12750,7 @@ type PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Ru
 	Subnet                 []string                                                                                                                       "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                       "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Exceptions_Destination) GetApplication() []*PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Exceptions_Destination_Application {
@@ -12831,7 +12825,7 @@ func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rul
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallRemoveRule_Policy_InternetFirewall_RemoveRule_Rule_Rule_Exceptions_Destination{}
 	}
@@ -13838,7 +13832,7 @@ type PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_Publish
 	Subnet                 []string                                                                                                                                          "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                                          "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                                   "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Destination) GetApplication() []*PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Destination_Application {
@@ -13913,7 +13907,7 @@ func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_Pub
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Destination{}
 	}
@@ -14675,7 +14669,7 @@ type PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_Publish
 	Subnet                 []string                                                                                                                                                     "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                                                     "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                                              "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetApplication() []*PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Exceptions_Destination_Application {
@@ -14750,7 +14744,7 @@ func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_Pub
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallPublishPolicyRevision_Policy_InternetFirewall_PublishPolicyRevision_Policy_Rules_Rule_Exceptions_Destination{}
 	}
@@ -15795,7 +15789,7 @@ type PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Ru
 	Subnet                 []string                                                                                                            "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                            "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                     "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Destination) GetApplication() []*PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Destination_Application {
@@ -15870,7 +15864,7 @@ func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rul
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Destination{}
 	}
@@ -16632,7 +16626,7 @@ type PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Ru
 	Subnet                 []string                                                                                                                       "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                       "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Exceptions_Destination) GetApplication() []*PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Exceptions_Destination_Application {
@@ -16707,7 +16701,7 @@ func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rul
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallUpdateRule_Policy_InternetFirewall_UpdateRule_Rule_Rule_Exceptions_Destination{}
 	}
@@ -17714,7 +17708,7 @@ type PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Pol
 	Subnet                 []string                                                                                                                        "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                        "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                 "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Destination) GetApplication() []*PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Destination_Application {
@@ -17789,7 +17783,7 @@ func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Destination{}
 	}
@@ -18551,7 +18545,7 @@ type PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Pol
 	Subnet                 []string                                                                                                                                   "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                                   "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                                            "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Exceptions_Destination) GetApplication() []*PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Exceptions_Destination_Application {
@@ -18626,7 +18620,7 @@ func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallUpdatePolicy_Policy_InternetFirewall_UpdatePolicy_Policy_Rules_Rule_Exceptions_Destination{}
 	}
@@ -19689,7 +19683,7 @@ type Policy_Policy_InternetFirewall_Policy_Rules_Rule_Destination struct {
 	Subnet                 []string                                                                               "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*Policy_Policy_InternetFirewall_Policy_Rules_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*Policy_Policy_InternetFirewall_Policy_Rules_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                               "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                        "json:\"remoteAsn\" graphql:\"remoteAsn\""
 	Container              []*Policy_Policy_InternetFirewall_Policy_Rules_Rule_Destination_Container              "json:\"container\" graphql:\"container\""
 }
 
@@ -19765,7 +19759,7 @@ func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Destination) GetGlobal
 	}
 	return t.GlobalIPRange
 }
-func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Destination) GetRemoteAsn() []string {
+func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &Policy_Policy_InternetFirewall_Policy_Rules_Rule_Destination{}
 	}
@@ -20551,7 +20545,7 @@ type Policy_Policy_InternetFirewall_Policy_Rules_Rule_Exceptions_Destination str
 	Subnet                 []string                                                                                          "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*Policy_Policy_InternetFirewall_Policy_Rules_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*Policy_Policy_InternetFirewall_Policy_Rules_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                          "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                   "json:\"remoteAsn\" graphql:\"remoteAsn\""
 	Container              []*Policy_Policy_InternetFirewall_Policy_Rules_Rule_Exceptions_Destination_Container              "json:\"container\" graphql:\"container\""
 }
 
@@ -20627,7 +20621,7 @@ func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Exceptions_Destination
 	}
 	return t.GlobalIPRange
 }
-func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *Policy_Policy_InternetFirewall_Policy_Rules_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &Policy_Policy_InternetFirewall_Policy_Rules_Rule_Exceptions_Destination{}
 	}
@@ -24223,7 +24217,7 @@ type PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Des
 	Subnet                 []string                                                                                                      "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                      "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                               "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Destination) GetApplication() []*PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Destination_Application {
@@ -24298,7 +24292,7 @@ func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Destination{}
 	}
@@ -25060,7 +25054,7 @@ type PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Exc
 	Subnet                 []string                                                                                                                 "json:\"subnet\" graphql:\"subnet\""
 	IPRange                []*PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Exceptions_Destination_IPRange                "json:\"ipRange\" graphql:\"ipRange\""
 	GlobalIPRange          []*PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Exceptions_Destination_GlobalIPRange          "json:\"globalIpRange\" graphql:\"globalIpRange\""
-	RemoteAsn              []string                                                                                                                 "json:\"remoteAsn\" graphql:\"remoteAsn\""
+	RemoteAsn              []scalars.Asn16                                                                                                          "json:\"remoteAsn\" graphql:\"remoteAsn\""
 }
 
 func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Exceptions_Destination) GetApplication() []*PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Exceptions_Destination_Application {
@@ -25135,7 +25129,7 @@ func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule
 	}
 	return t.GlobalIPRange
 }
-func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Exceptions_Destination) GetRemoteAsn() []string {
+func (t *PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Exceptions_Destination) GetRemoteAsn() []scalars.Asn16 {
 	if t == nil {
 		t = &PolicyInternetFirewallAddRule_Policy_InternetFirewall_AddRule_Rule_Rule_Exceptions_Destination{}
 	}

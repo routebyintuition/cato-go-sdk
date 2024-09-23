@@ -9,6 +9,12 @@ models:
     model: github.com/99designs/gqlgen/graphql.Int64
   Date:
     model: github.com/99designs/gqlgen/graphql.Time
+  Asn16:
+    model: github.com/routebyintuition/cato-go-sdk/scalars.Asn16
+  Asn32:
+    model: github.com/routebyintuition/cato-go-sdk/scalars.Asn32
+  Long:
+    model: github.com/routebyintuition/cato-go-sdk/scalars.Long    
   Port:
     model: github.com/routebyintuition/cato-go-sdk/scalars.Port
   Time:
