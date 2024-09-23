@@ -36,3 +36,7 @@ func (a *Asn16) UnmarshalGQL(v interface{}) error {
 func (a Asn16) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, string(a))
 }
+
+func (a Asn16) GetString() string {
+	return string(a)
+}
