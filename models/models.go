@@ -4813,7 +4813,7 @@ type SiteRefInput struct {
 type SiteSnapshot struct {
 	// site ID
 	ID      *string `json:"id,omitempty"`
-	ProtoID *string `json:"protoId,omitempty"`
+	ProtoID *int64  `json:"protoId,omitempty"`
 	// Connectivity to the Cato Cloud
 	ConnectivityStatus *ConnectivityStatus `json:"connectivityStatus,omitempty"`
 	// Site HA readiness information
@@ -10792,18 +10792,21 @@ func (e PolicyToggleState) MarshalGQL(w io.Writer) {
 type ProtoType string
 
 const (
-	ProtoTypeSocketX1500    ProtoType = "SOCKET_X1500"
-	ProtoTypeVsocketVgx     ProtoType = "VSOCKET_VGX"
-	ProtoTypeIpsecHost      ProtoType = "IPSEC_HOST"
-	ProtoTypeIpsecClient    ProtoType = "IPSEC_CLIENT"
-	ProtoTypeIpsecV2        ProtoType = "IPSEC_V2"
-	ProtoTypeSocketX1600    ProtoType = "SOCKET_X1600"
-	ProtoTypeSocketX1700    ProtoType = "SOCKET_X1700"
-	ProtoTypeSocketAws1500  ProtoType = "SOCKET_AWS1500"
-	ProtoTypeSocketAz1500   ProtoType = "SOCKET_AZ1500"
-	ProtoTypeSocketEsx1500  ProtoType = "SOCKET_ESX1500"
-	ProtoTypeCrossConnect   ProtoType = "CROSS_CONNECT"
-	ProtoTypeSocketX1600Lte ProtoType = "SOCKET_X1600_LTE"
+	ProtoTypeSocketX1500     ProtoType = "SOCKET_X1500"
+	ProtoTypeVsocketVgx      ProtoType = "VSOCKET_VGX"
+	ProtoTypeIpsecHost       ProtoType = "IPSEC_HOST"
+	ProtoTypeIpsecClient     ProtoType = "IPSEC_CLIENT"
+	ProtoTypeIpsecV2         ProtoType = "IPSEC_V2"
+	ProtoTypeSocketX1600     ProtoType = "SOCKET_X1600"
+	ProtoTypeSocketX1700     ProtoType = "SOCKET_X1700"
+	ProtoTypeSocketAws1500   ProtoType = "SOCKET_AWS1500"
+	ProtoTypeSocketAz1500    ProtoType = "SOCKET_AZ1500"
+	ProtoTypeSocketEsx1500   ProtoType = "SOCKET_ESX1500"
+	ProtoTypeCrossConnect    ProtoType = "CROSS_CONNECT"
+	ProtoTypeSocketX1600Lte  ProtoType = "SOCKET_X1600_LTE"
+	ProtoTypeVsocketVgxEsx   ProtoType = "VSOCKET_VGX_ESX"
+	ProtoTypeVsocketVgxAws   ProtoType = "VSOCKET_VGX_AWS"
+	ProtoTypeVsocketVgxAzure ProtoType = "VSOCKET_VGX_AZURE"
 )
 
 var AllProtoType = []ProtoType{
@@ -10819,11 +10822,14 @@ var AllProtoType = []ProtoType{
 	ProtoTypeSocketEsx1500,
 	ProtoTypeCrossConnect,
 	ProtoTypeSocketX1600Lte,
+	ProtoTypeVsocketVgxEsx,
+	ProtoTypeVsocketVgxAws,
+	ProtoTypeVsocketVgxAzure,
 }
 
 func (e ProtoType) IsValid() bool {
 	switch e {
-	case ProtoTypeSocketX1500, ProtoTypeVsocketVgx, ProtoTypeIpsecHost, ProtoTypeIpsecClient, ProtoTypeIpsecV2, ProtoTypeSocketX1600, ProtoTypeSocketX1700, ProtoTypeSocketAws1500, ProtoTypeSocketAz1500, ProtoTypeSocketEsx1500, ProtoTypeCrossConnect, ProtoTypeSocketX1600Lte:
+	case ProtoTypeSocketX1500, ProtoTypeVsocketVgx, ProtoTypeIpsecHost, ProtoTypeIpsecClient, ProtoTypeIpsecV2, ProtoTypeSocketX1600, ProtoTypeSocketX1700, ProtoTypeSocketAws1500, ProtoTypeSocketAz1500, ProtoTypeSocketEsx1500, ProtoTypeCrossConnect, ProtoTypeSocketX1600Lte, ProtoTypeVsocketVgxEsx, ProtoTypeVsocketVgxAws, ProtoTypeVsocketVgxAzure:
 		return true
 	}
 	return false

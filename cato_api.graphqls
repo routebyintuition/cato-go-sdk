@@ -953,6 +953,9 @@ enum ProtoType {
   SOCKET_ESX1500
   CROSS_CONNECT
   SOCKET_X1600_LTE
+  VSOCKET_VGX_ESX
+  VSOCKET_VGX_AWS
+  VSOCKET_VGX_AZURE
 }
 
 enum SocketRegistrationStatus {
@@ -3273,7 +3276,7 @@ type UserSnapshot {
 type SiteSnapshot {
   """site ID"""
   id: ID
-  protoId: ID
+  protoId: Int
   """Connectivity to the Cato Cloud"""
   connectivityStatus: ConnectivityStatus
   """Site HA readiness information"""

@@ -13,6 +13,8 @@ models:
     model: github.com/routebyintuition/cato-go-sdk/scalars.Asn16
   Asn32:
     model: github.com/routebyintuition/cato-go-sdk/scalars.Asn32
+  #ID:
+  #  model: github.com/routebyintuition/cato-go-sdk/scalars.ID    
   Long:
     model: github.com/routebyintuition/cato-go-sdk/scalars.Long    
   Port:
