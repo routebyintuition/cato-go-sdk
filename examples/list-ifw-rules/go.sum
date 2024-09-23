@@ -1,7 +1,7 @@
-github.com/99designs/gqlgen v0.17.49 h1:b3hNGexHd33fBSAd4NDT/c3NCcQzcAVkknhN9ym36YQ=
-github.com/99designs/gqlgen v0.17.49/go.mod h1:tC8YFVZMed81x7UJ7ORUwXF4Kn6SXuucFqQBhN8+BU0=
-github.com/Yamashou/gqlgenc v0.25.0 h1:wb4CKKpnklmK9R+RQ68yoSdhqlK+MPflYT/hsMOE1+I=
-github.com/Yamashou/gqlgenc v0.25.0/go.mod h1:KheDl3KZUFmnGCLHCHPQ6hodwWbggc889vwwaf0VqH8=
+github.com/99designs/gqlgen v0.17.51 h1:KHLvUckplsZi14Zv1JdHkemXSkulksN/Dwe7VflePSQ=
+github.com/99designs/gqlgen v0.17.51/go.mod h1:77/+pVe6zlTsz++oUg2m8VLgzdUPHxjoAG3BxI5y8Rc=
+github.com/Yamashou/gqlgenc v0.25.1 h1:JwKb4q0a3TAXqBycVYxN225vceqsPFiglyIH5k6LcLc=
+github.com/Yamashou/gqlgenc v0.25.1/go.mod h1:MofTrr+tgTzuJWrCHz+JLy2uQqEmaenvYWJLjHD4wQk=
 github.com/andreyvit/diff v0.0.0-20170406064948-c7f18ee00883 h1:bvNMNQO63//z+xNgfBlViaCIJKLlCJ6/fmUseuG0wVQ=
 github.com/andreyvit/diff v0.0.0-20170406064948-c7f18ee00883/go.mod h1:rCTlJbsFo29Kk6CurOXKm700vrz8f0KW0JNfpkRJY/8=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

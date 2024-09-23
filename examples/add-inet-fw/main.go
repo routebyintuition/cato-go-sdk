@@ -9,6 +9,7 @@ import (
 
 	cato "github.com/routebyintuition/cato-go-sdk"
 	cato_models "github.com/routebyintuition/cato-go-sdk/models"
+	"github.com/routebyintuition/cato-go-sdk/scalars"
 )
 
 func main() {
@@ -48,6 +49,8 @@ func main() {
 
 	domainList := []string{"slashdot.org"}
 	fqdnList := []string{"www.slashdot.org"}
+
+	remoteAsnList := []scalars.Asn16{}
 
 	inputRule := cato_models.InternetFirewallAddRuleInput{
 		At: &cato_models.PolicyRulePositionInput{
@@ -89,7 +92,7 @@ func main() {
 				Subnet:                 []string{},
 				IPRange:                iprange,
 				GlobalIPRange:          globalIpRange,
-				RemoteAsn:              []string{},
+				RemoteAsn:              remoteAsnList,
 			},
 			Service: &cato_models.InternetFirewallServiceTypeInput{},
 			Action:  actionEnum,
