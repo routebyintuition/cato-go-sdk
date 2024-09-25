@@ -26,7 +26,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	catoClient, _ := cato.New(url, token, *http.DefaultClient)
+	catoClient, _ := cato.New(url, token, *http.DefaultClient, "testheader01", "testval01", "testheader02", "testval02")
 
 	ctx := context.Background()
 
